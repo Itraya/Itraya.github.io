@@ -357,6 +357,17 @@ function compareEnchant(item1, item2) {
 	return true;
 }
 
+function isBetterEnchant(item1, item2) {
+	for (let enchant1 of item1.enchantments) {
+		for (let enchant2 of item2.enchantments) {
+			if (enchant1.type === enchant2.type && enchant1.actual_level > enchant2.actual_level) {
+				return false
+			}
+		}
+	}
+	return true
+}
+
 function test(items) {
 	let minCost = Infinity
 	let minCombination = []
@@ -365,7 +376,7 @@ function test(items) {
 	function combineAll(items, costSoFar, combinationSoFar) {
 		if (items.length === 1) {
 			var go = false
-			if (costSoFar < minCost && compareEnchant(items[0], bestItem)) {
+			if (isBetterEnchant(item[0], bestItem) || (costSoFar < minCost && compareEnchant(items[0], bestItem))) {
 				minCost = costSoFar
 				minCombination = combinationSoFar
 				bestItem = items[0]
