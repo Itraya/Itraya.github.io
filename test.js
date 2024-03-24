@@ -361,11 +361,11 @@ function isBetterEnchant(item1, item2) {
 	for (let enchant1 of item1.enchantments) {
 		for (let enchant2 of item2.enchantments) {
 			if (enchant1.type === enchant2.type && enchant1.actual_level > enchant2.actual_level) {
-				return false
+				return true
 			}
 		}
 	}
-	return true
+	return false
 }
 
 function test(items) {
@@ -376,7 +376,7 @@ function test(items) {
 	function combineAll(items, costSoFar, combinationSoFar) {
 		if (items.length === 1) {
 			var go = false
-			if (isBetterEnchant(item[0], bestItem) || (costSoFar < minCost && compareEnchant(items[0], bestItem))) {
+			if (isBetterEnchant(items[0], bestItem) || (costSoFar < minCost && compareEnchant(items[0], bestItem))) {
 				minCost = costSoFar
 				minCombination = combinationSoFar
 				bestItem = items[0]
@@ -399,7 +399,7 @@ function test(items) {
 	combineAll(items, 0, [])
 
 	console.log("best", bestItem)
-	return ([minCombination, minCost])
+	return ([minCombination, minCost, bestItem])
 }
 
 var max_durability = 0;
@@ -530,7 +530,7 @@ function addItem() {
 	displayItem(newItem)
 }
 
-function displayRes(minCost, minCombination) {
+function displayRes(minCost, minCombination, finalItem) {
 	var resDiv = document.getElementById("res")
 	resDiv.innerHTML = ""
 	var div = document.createElement("div")
@@ -580,6 +580,25 @@ function displayRes(minCost, minCombination) {
 		}
 
 		txt += "<br>" + "Coût intermédiaire: " + combinations[2]
+
+		txt += "<br><br>Item Final:<br>"
+
+		for (enchants of finalItem.enchantments) {
+			txt += enchants.type.charAt(0) + enchants.type.substring(1).toLowerCase() + " "
+			// txt += enchants.type + " "
+			if (enchants.actual_level == 1 && enchants.max_level != 1)
+				txt += "I"
+			else if (enchants.actual_level == 2)
+				txt += "II"
+			else if (enchants.actual_level == 3)
+				txt += "III"
+			else if (enchants.actual_level == 4)
+				txt += "IV"
+			else if (enchants.actual_level == 5)
+				txt += "V"
+			txt += " "
+		}
+
 		combinationDiv.innerHTML = txt
 		resDiv.appendChild(combinationDiv)
 	}
@@ -603,8 +622,9 @@ function combineItems() {
 
 	const minCost = res[1]
 	const minCombination = res[0]
+	const finalItem = res[2]
 
-	displayRes(minCost, minCombination)
+	displayRes(minCost, minCombination, finalItem)
 }
 
 function createItemFromDiv(itemDiv) {
