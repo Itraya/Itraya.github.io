@@ -1,0 +1,136 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Styles pour la section de sélection d'objets */
+#itemSelection {
+    margin-bottom: 20px;
+}
+
+#itemSelection label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#itemSelection select, #itemSelection input[type="number"] {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#itemSelection button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#itemSelection button:hover {
+    background-color: #45a049;
+}
+
+/* Styles pour la liste d'objets */
+#itemList {
+    margin-bottom: 20px;
+}
+
+/* Styles pour le bouton de combinaison */
+#combine {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#combine:disabled, #add:disabled, #confirm:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#combine:hover:enabled {
+    background-color: #005f77;
+}
+
+/* Styles pour les éléments finaux */
+#res {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Styles pour les éléments ajoutés dynamiquement */
+#itemList .item {
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+#res {
+    font-style: italic;
+    color: #888;
+}
+
+/* Styles pour les éléments select ajoutés dynamiquement */
+#itemList select {
+    padding: 10px 20px; /* Reprendre le même padding que les boutons */
+    font-size: 16px; /* Taille de police similaire à celle des boutons */
+    background-color: #ccc; /* Couleur de fond proche du gris */
+    color: #333; /* Couleur du texte proche du noir */
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Ajoute de l'espace en bas de chaque select */
+    margin-right: 10px; /* Ajoute de l'espace à droite de chaque select */
+    cursor: pointer;
+}
+
+/* Style pour l'option par défaut barrée */
+#itemList select option[value="0"] {
+    text-decoration: line-through;
+    color: #999; /* Couleur de texte grise */
+    pointer-events: none; /* Désactiver les événements de pointer */
+}
+
+#itemList select:hover {
+    background-color: #aaa; /* Changement de couleur au survol */
+}
+
+
+/* Styles pour les éléments input ajoutés dynamiquement */
+#itemList input[type="number"] {
+    padding: 10px 20px; /* Reprendre le même padding que les boutons */
+    font-size: 16px; /* Taille de police similaire à celle des boutons */
+    background-color: #ccc; /* Couleur de fond proche du gris */
+    color: #333; /* Couleur du texte proche du noir */
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+#itemList input[type="number"]:hover {
+    background-color: #aaa; /* Changement de couleur au survol */
+}
+
+#itemList select + input[type="number"] {
+    margin-left: 10px;
+}
+
+/* Styles supplémentaires si nécessaire */

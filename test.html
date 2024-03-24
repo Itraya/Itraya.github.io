@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Combination Tool</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers votre fichier CSS -->
+    <style>
+        /* Ajoutez vos styles personnalisés ici si nécessaire */
+    </style>
+</head>
+<body>
+
+    <div id="itemSelection">
+        <label for="itemType">Sélectionnez le type d'objet :</label>
+        <select id="itemType">
+            <!-- Les options seront peuplées dynamiquement avec JavaScript si nécessaire -->
+            <option value="TURTLE_SHELL">Coquille de tortue</option>
+            <option value="HELMET">Casque</option>
+            <option value="CHESTPLATE">Plastron</option>
+            <option value="LEGGINGS">Jambières</option>
+            <option value="BOOTS">Bottes</option>
+            <option value="SWORD">Épée</option>
+            <option value="AXE">Hache</option>
+            <option value="PICKAXE">Pioche</option>
+            <option value="SHOVEL">Pelle</option>
+            <option value="HOE">Houe</option>
+            <option value="BOW">Arc</option>
+            <option value="FISHING_ROD">Canne à pêche</option>
+            <option value="TRIDENT">Trident</option>
+            <option value="CROSSBOW">Arbalète</option>
+            <option value="SHIELD">Bouclier</option>
+            <option value="ELYTRA">Élytres</option>
+        </select>
+        <input type="number" id="durability" placeholder="Durabilité max">
+        <button id="confirm" onclick="confirmChoice()">Confirmer le choix</button>
+        <button id="add" onclick="addItem()" disabled>Ajouter l'objet</button>
+    </div>
+
+    <div id="itemList">
+        <!-- Les objets ajoutés seront affichés ici -->
+    </div>
+
+    <button id="combine" onclick="combineItems()" disabled="true">Combinez tout</button>
+
+    <div id="res">
+        <!-- Le résultat de la combinaison sera affiché ici -->
+    </div>
+
+    <script src="test.js"></script> <!-- Référencez votre fichier JavaScript ici -->
+</body>
+</html>
