@@ -346,39 +346,6 @@ function lowestCost(item1, item2) {
 	const cost2 = item2.combineCost(item1)
 	return cost1 < cost2 ? cost1 : cost2
 }
-
-var t1 = new Item("TRIDENT", [new Enchantment("CHANNELING", 1, 1, 1)])
-var t2 = new Item("TRIDENT", [new Enchantment("LOYALTY", 3, 3, 2)])
-var t3 = new Item("TRIDENT", [new Enchantment("RIPTIDE", 3, 3, 12)])
-var t4 = new Item("TRIDENT", [])
-
-
-var h1 = new Item("HELMET", [new Enchantment("MENDING", 1, 1, 0), new Enchantment("AQUA_AFFINITY", 1, 1, 0), new Enchantment("PROTECTION", 2, 4, 1)], 363, 363, 0)
-var h2 = new Item("HELMET", [new Enchantment("UNBREAKING", 1, 3, 0), new Enchantment("THORNS", 1, 3, 0), new Enchantment("RESPIRATION", 2, 3, 0)], 363, 363, 0)
-var h3 = new Item("HELMET", [new Enchantment("THORNS", 1, 3, 0), new Enchantment("PROTECTION", 2, 4, 1)], 363, 363, 0)
-var h4 = new Item("HELMET", [new Enchantment("UNBREAKING", 1, 3, 0), new Enchantment("THORNS", 1, 3, 0)], 363, 363, 0)
-var h5 = new Item("HELMET", [new Enchantment("UNBREAKING", 1, 3, 0), new Enchantment("RESPIRATION", 2, 3, 0), new Enchantment("PROTECTION", 2, 4, 1)], 363, 363, 0)
-var h6 = new Item("HELMET", [new Enchantment("THORNS", 1, 3, 0), new Enchantment("PROTECTION", 1, 4, 1)], 363, 363, 0)
-var h7 = new Item("HELMET", [new Enchantment("RESPIRATION", 2, 3, 0)], 363, 363, 0)
-var h8 = new Item("HELMET", [new Enchantment("UNBREAKING", 1, 3, 0), new Enchantment("PROTECTION", 1, 4, 1)], 363, 363, 0)
-
-// let h = [h1, h2, h2, h3, h4, h5, h6, h7, h8]
-
-let h = [h1, h2, h3, h4, h5, h6, h7, h8]
-
-console.time("t")
-test(h)
-console.timeEnd("t")
-
-var b1 = new Item("BOW", new Array(new Enchantment('POWER', 3, 5), new Enchantment('UNBREAKING', 3, 3), new Enchantment('FLAME', 1, 1)), true, 0)
-var b2 = new Item("BOW", new Array(new Enchantment('INFINITY', 1, 1)), true, 0)
-var b3 = new Item("BOW", new Array(new Enchantment('POWER', 3, 5)), true, 0)
-var b4 = new Item("BOW", new Array(new Enchantment('POWER', 4, 5)), false, 0)
-
-var bfinal = new Item("BOW", new Array(new Enchantment('POWER', 5, 5), new Enchantment('UNBREAKING', 3, 3), new Enchantment('FLAME', 1, 1), new Enchantment('INFINITY', 1, 1)), true, 0)
-
-let b = [b1, b2, b3, b4]
-
 function compareEnchant(item1, item2) {
 	for (let enchant1 of item1.enchantments) {
 		for (let enchant2 of item2.enchantments) {
@@ -424,8 +391,6 @@ function test(items) {
 	return ([minCombination, minCost])
 }
 
-// test(b, bfinal);
-/*
 var max_durability = 0;
 
 function getDurability(type) {
@@ -679,4 +644,3 @@ function barreMoiCa() {
 		this.style.textDecoration = "none"
 
 }
-*/
