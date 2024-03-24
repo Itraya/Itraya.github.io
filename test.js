@@ -543,7 +543,7 @@ function displayRes(minCost, minCombination, finalItem) {
 	for (combinations of minCombination) {
 		var combinationDiv = document.createElement("div")
 
-		var txt = ""
+		var txt = "<br>"
 
 		for (enchants of combinations[0].enchantments) {
 			txt += enchants.type.charAt(0) + enchants.type.substring(1).toLowerCase() + " "
@@ -581,27 +581,31 @@ function displayRes(minCost, minCombination, finalItem) {
 
 		txt += "<br>" + "Coût intermédiaire: " + combinations[2]
 
-		txt += "<br><br>Item Final:<br>"
-
-		for (enchants of finalItem.enchantments) {
-			txt += enchants.type.charAt(0) + enchants.type.substring(1).toLowerCase() + " "
-			// txt += enchants.type + " "
-			if (enchants.actual_level == 1 && enchants.max_level != 1)
-				txt += "I"
-			else if (enchants.actual_level == 2)
-				txt += "II"
-			else if (enchants.actual_level == 3)
-				txt += "III"
-			else if (enchants.actual_level == 4)
-				txt += "IV"
-			else if (enchants.actual_level == 5)
-				txt += "V"
-			txt += " "
-		}
-
+		
 		combinationDiv.innerHTML = txt
 		resDiv.appendChild(combinationDiv)
 	}
+	var finalDiv = document.createElement("div")
+	txt = "<br><br>Item Final:<br>"
+	
+	for (enchants of finalItem.enchantments) {
+		txt += enchants.type.charAt(0) + enchants.type.substring(1).toLowerCase() + " "
+		// txt += enchants.type + " "
+		if (enchants.actual_level == 1 && enchants.max_level != 1)
+			txt += "I"
+		else if (enchants.actual_level == 2)
+			txt += "II"
+		else if (enchants.actual_level == 3)
+			txt += "III"
+		else if (enchants.actual_level == 4)
+			txt += "IV"
+		else if (enchants.actual_level == 5)
+			txt += "V"
+		txt += " "
+	}
+	finalDiv.innerHTML = txt
+	finalDiv.style.fontWeight = "bold"
+	resDiv.appendChild(finalDiv)
 }
 
 function combineItems() {
